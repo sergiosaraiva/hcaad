@@ -1,0 +1,42 @@
+{
+    "dimension_reduction": {
+        "apply_dimension_reduction": true,
+        "n_components": 4
+    },
+    "clustering_algorithm": "hdbscan",
+    "dbscan": {
+        "eps": 0.7,
+        "min_samples": 10
+    },
+    "hdbscan": {
+        "min_cluster_size": 15,
+        "min_samples": 10,
+        "cluster_selection_epsilon": 0.1,
+        "cluster_selection_method": "leaf"
+    },
+    "autoencoder": {
+        "epochs": 4,
+        "batch_size": 64,
+        "learning_rate": 0.01,
+        "hidden_layers": [64, 32, 64],
+        "dropout_rate": 0.2,
+        "hidden_layers_activation": "relu",
+        "output_layer_activation": "sigmoid",
+        "loss": "mean_squared_error",
+        "shuffle": true,
+        "validation_split": 0.2
+    },
+    "early_stopping": {
+        "apply_early_stopping": true,
+        "monitor": "val_loss", 
+        "patience": 25, 
+        "restore_best_weights": true
+    },
+    "features": {
+        "numeric_features": ["Amount", "TransactionAmount"],
+        "categorical_features": ["CurrCode", "TransactionCurrCode"]
+    },
+    "anomaly_detection": {
+        "threshold_multiplier": 2
+    }
+}
